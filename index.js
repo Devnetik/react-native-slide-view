@@ -5,6 +5,7 @@ import React, {Component} from 'react';
 import {
 	View,
 	Animated,
+	Dimensions,
 	TouchableWithoutFeedback
 } from 'react-native';
 
@@ -15,13 +16,23 @@ class SlideView extends Component {
 		this.show = this.show.bind(this);
 		this.hide = this.hide.bind(this);
 
+		var animatedOpacity = new Animated.Value(props.visible ? 1 : 0);
+		animatedOpacity.addListener(value=> {
+			if (value.value === 0) {
+				this.setState({renderComponent: false});
+			}
+		});
+
 		this.state = {
-			opacity : new Animated.Value(props.visible ? 1 : 0),
-			position: new Animated.Value(props.visible ? 0 : -this.props.expandedHeight),
+			renderComponent: props.visible,
+			visible        : props.visible,
+			opacity        : animatedOpacity,
+			position       : new Animated.Value(props.visible ? 0 : -this.props.expandedHeight),
 		}
 	}
 
 	show() {
+		this.setState({renderComponent: true});
 		Animated.timing(this.state.opacity, {
 			toValue : 1.0,
 			friction: this.props.friction,
@@ -30,7 +41,7 @@ class SlideView extends Component {
 		Animated.timing(this.state.position, {
 			toValue : 0,
 			friction: this.props.friction,
-			duration: this.props.duration
+			duration: this.props.duration * 2
 		}).start();
 	}
 
@@ -40,10 +51,11 @@ class SlideView extends Component {
 			friction: this.props.friction,
 			duration: this.props.duration
 		}).start();
+
 		Animated.timing(this.state.position, {
 			toValue : -this.props.expandedHeight,
 			friction: this.props.friction,
-			duration: this.props.duration
+			duration: this.props.duration * 2
 		}).start();
 	}
 
@@ -76,7 +88,7 @@ class SlideView extends Component {
 
 		const sliderStyle = {
 			height         : this.props.expandedHeight,
-			backgroundColor: 'white',
+			backgroundColor: 'transparent',
 			opacity        : this.state.opacity,
 			position       : 'absolute',
 			top            : this.state.position,
@@ -85,13 +97,17 @@ class SlideView extends Component {
 			bottom         : null
 		};
 
-		return (
-			<Animated.View style={[absolute, containerStyle]}>
-				<Animated.View style={[absolute, sliderStyle, this.props.style]}>
-					{this.props.children}
+		if (this.state.renderComponent) {
+			return (
+				<Animated.View style={[absolute, containerStyle]}>
+					<Animated.View style={[absolute, sliderStyle, this.props.style]}>
+						{this.props.children}
+					</Animated.View>
 				</Animated.View>
-			</Animated.View>
-		)
+			)
+		} else {
+			return <View/>;
+		}
 	}
 }
 
@@ -104,7 +120,7 @@ SlideView.propTypes = {
 SlideView.defaultProps = {
 	friction      : 1,
 	duration      : 300,
-	expandedHeight: 300
+	expandedHeight: Dimensions.get('window').height
 };
 
 export default SlideView;
