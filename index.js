@@ -42,7 +42,7 @@ class SlideView extends Component {
 		Animated.timing(this.state.position, {
 			toValue : 0,
 			friction: this.props.friction,
-			duration: this.props.duration * 2
+			duration: this.props.duration
 		}).start();
 	}
 
@@ -56,7 +56,7 @@ class SlideView extends Component {
 		Animated.timing(this.state.position, {
 			toValue : -this.props.expandedHeight,
 			friction: this.props.friction,
-			duration: this.props.duration * 2
+			duration: this.props.duration
 		}).start();
 	}
 
