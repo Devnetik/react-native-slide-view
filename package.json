@@ -1,7 +1,7 @@
 {
   "name": "react-native-slide-view",
   "version": "1.0.0",
-  "description": "",
+  "description": "A container which darkens the background and slides into the screen",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +11,13 @@
     "component"
   ],
   "author": "Michael Malura <maluramichael@googlemail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devnetik/react-native-slide-view.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Devnetik/react-native-slide-view/issues"
+  },
+  "homepage": "https://github.com/Devnetik/react-native-slide-view#readme"
 }
