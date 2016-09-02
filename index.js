@@ -17,7 +17,7 @@ class SlideView extends Component {
 		this.hide = this.hide.bind(this);
 		this.tapped = this.tapped.bind(this);
 
-		var animatedOpacity = new Animated.Value(props.visible ? 1 : 0);
+		const animatedOpacity = new Animated.Value(props.visible ? 1 : 0);
 		animatedOpacity.addListener(value=> {
 			if (value.value === 0) {
 				this.setState({renderComponent: false});
@@ -33,6 +33,9 @@ class SlideView extends Component {
 	}
 
 	show() {
+		if (this.props.opening) {
+			this.props.opening();
+		}
 		this.setState({renderComponent: true});
 		Animated.timing(this.state.opacity, {
 			toValue : 1.0,
@@ -47,6 +50,9 @@ class SlideView extends Component {
 	}
 
 	hide() {
+		if (this.props.closing) {
+			this.props.closing();
+		}
 		Animated.timing(this.state.opacity, {
 			toValue : 0,
 			friction: this.props.friction,
@@ -124,7 +130,12 @@ SlideView.propTypes = {
 	friction      : React.PropTypes.number,
 	duraction     : React.PropTypes.number,
 	expandedHeight: React.PropTypes.number,
-	closeOnTap    : React.PropTypes.bool
+	closeOnTap    : React.PropTypes.bool,
+	opening       : React.PropTypes.func,
+	opened        : React.PropTypes.func,
+	closing       : React.PropTypes.func,
+	closed        : React.PropTypes.func,
+	tapped        : React.PropTypes.func,
 };
 
 SlideView.defaultProps = {
