@@ -15,6 +15,7 @@ class SlideView extends Component {
 
 		this.show = this.show.bind(this);
 		this.hide = this.hide.bind(this);
+		this.tapped = this.tapped.bind(this);
 
 		var animatedOpacity = new Animated.Value(props.visible ? 1 : 0);
 		animatedOpacity.addListener(value=> {
@@ -71,6 +72,12 @@ class SlideView extends Component {
 		}
 	}
 
+	tapped() {
+		if (this.props.closeOnTap) {
+			this.hide();
+		}
+	}
+
 	render() {
 		const absolute = {
 			position: 'absolute',
@@ -100,9 +107,11 @@ class SlideView extends Component {
 		if (this.state.renderComponent) {
 			return (
 				<Animated.View style={[absolute, containerStyle]}>
-					<Animated.View style={[absolute, sliderStyle, this.props.style]}>
-						{this.props.children}
-					</Animated.View>
+					<TouchableWithoutFeedback onPress={this.tapped}>
+						<Animated.View style={[absolute, sliderStyle, this.props.style]}>
+							{this.props.children}
+						</Animated.View>
+					</TouchableWithoutFeedback>
 				</Animated.View>
 			)
 		} else {
@@ -114,7 +123,8 @@ class SlideView extends Component {
 SlideView.propTypes = {
 	friction      : React.PropTypes.number,
 	duraction     : React.PropTypes.number,
-	expandedHeight: React.PropTypes.number
+	expandedHeight: React.PropTypes.number,
+	closeOnTap    : React.PropTypes.bool
 };
 
 SlideView.defaultProps = {
