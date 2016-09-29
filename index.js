@@ -47,6 +47,10 @@ class SlideView extends Component {
 	}
 
 	hide() {
+		if (this.props.closing) {
+			this.props.closing();
+		}
+
 		Animated.timing(this.state.opacity, {
 			toValue : 0,
 			friction: this.props.friction,
@@ -124,7 +128,8 @@ SlideView.propTypes = {
 	friction      : React.PropTypes.number,
 	duraction     : React.PropTypes.number,
 	expandedHeight: React.PropTypes.number,
-	closeOnTap    : React.PropTypes.bool
+	closeOnTap    : React.PropTypes.bool,
+	closing       : React.PropTypes.func
 };
 
 SlideView.defaultProps = {
