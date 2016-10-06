@@ -1,3 +1,3 @@
-import SlideView from './slideView.js';
+import SlideView from './lib/slideView.js';
 
 export default SlideView;
