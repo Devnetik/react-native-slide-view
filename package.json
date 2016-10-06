@@ -1,6 +1,6 @@
 {
   "name": "react-native-slide-view",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A container which darkens the background and slides into the screen",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "preset": "jest-react-native"
   },
   "homepage": "https://github.com/Devnetik/react-native-slide-view#readme",
-  "peerDependencies":{
+  "peerDependencies": {
     "react": "^15.3.1",
     "react-native": "^0.34.1"
   },
