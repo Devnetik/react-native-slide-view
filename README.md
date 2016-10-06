@@ -2,6 +2,7 @@
 
 [![npm](https://img.shields.io/npm/dm/react-native-slide-view.svg?maxAge=2592000)](https://www.npmjs.com/package/react-native-slide-view)
 [![npm](https://img.shields.io/npm/v/react-native-slide-view.svg?maxAge=2592000)](https://www.npmjs.com/package/react-native-slide-view)
+[![Beerpay](https://beerpay.io/Devnetik/react-native-slide-view/badge.svg?style=flat)](https://beerpay.io/Devnetik/react-native-slide-view)
 
 ## Getting started
 ```sh
