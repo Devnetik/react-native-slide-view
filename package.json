@@ -1,6 +1,6 @@
 {
   "name": "react-native-slide-view",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A container which darkens the background and slides into the screen",
   "main": "index.js",
   "scripts": {
