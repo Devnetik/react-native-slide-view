@@ -1,0 +1,3 @@
+exports[`test renders correctly with children 1`] = `<View />`;
+
+exports[`test renders correctly without props 1`] = `<View />`;
