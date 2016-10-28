@@ -1,5 +1,7 @@
 # Slide View
 
+[![Join the chat at https://gitter.im/Devnetik/react-native-slide-view](https://badges.gitter.im/Devnetik/react-native-slide-view.svg)](https://gitter.im/Devnetik/react-native-slide-view?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![npm](https://img.shields.io/npm/dm/react-native-slide-view.svg?maxAge=2592000)](https://www.npmjs.com/package/react-native-slide-view)
 [![npm](https://img.shields.io/npm/v/react-native-slide-view.svg?maxAge=2592000)](https://www.npmjs.com/package/react-native-slide-view)
 [![Beerpay](https://beerpay.io/Devnetik/react-native-slide-view/badge.svg?style=flat)](https://beerpay.io/Devnetik/react-native-slide-view)
