@@ -36,7 +36,17 @@ class Example extends Component {
 }
 ```
 
-## Constribute
+## Props
+
+- `friction` animation friction
+- `duration` animation duration in ms (default is `500`)
+- `showDuration` show animation duration in ms (defaults to `duration`)
+- `hideDuration` hide animation duration in ms(defaults to `duration`)
+- `expandedHeight` view height when expanded (defaults to window height)
+- `closeOnTap` if true, closes on tap
+- `closing` function called when hiding
+
+## Contribute
 
 Comments, Issues and Pull Requests are welcomed!
 
