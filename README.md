@@ -45,6 +45,8 @@ class Example extends Component {
 - `expandedHeight` view height when expanded (defaults to window height)
 - `closeOnTap` if true, closes on tap
 - `closing` function called when hiding
+- `onClosed` function called after closing animations completed 
+- `onOpened` function called after opening animations completed 
 
 ## Contribute
 
